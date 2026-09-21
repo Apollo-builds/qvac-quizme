@@ -24,14 +24,12 @@ node index.js my-notes.txt 5
 
 - **SDK:** `@qvac/sdk` **v0.19.1** (npm)
 - **Model:** `QWEN3_600M_INST_Q4` (~0.5 GB download, cached after first run)
-- All inference runs **on-device** via llama.cpp (CPU fallback, works without a GPU)
-
+- Inference is designed to run **on-device** through QVAC; compatible hardware/runtime support is required.
 ## Requirements
 
 - **Node.js >= 22.17** (check with `node --version`)
 - ~1 GB free disk space for the model cache
-- Works on 4 GB RAM machines (runs on CPU, no GPU needed)
-
+- Hardware requirements depend on the QVAC runtime and platform; check system compatibility before running.
 ## Install & run
 
 ```bash
