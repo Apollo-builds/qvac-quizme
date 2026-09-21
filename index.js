@@ -10,6 +10,11 @@ import { loadModel, QWEN3_600M_INST_Q4, completion, unloadModel } from '@qvac/sd
 
 const NOTES_PATH = process.argv[2] ?? './sample-notes.txt'
 const NUM_QUESTIONS = Number(process.argv[3] ?? 5)
+if (!Number.isInteger(NUM_QUESTIONS) || NUM_QUESTIONS < 1 || NUM_QUESTIONS > 10) {
+  console.error('✖ Number of questions must be a whole number from 1 to 10.')
+  console.error('  Usage: node index.js <path-to-notes.txt> [number-of-questions]')
+  process.exit(1)
+}
 
 // A 600M model has a small context window - keep the prompt focused.
 const MAX_NOTES_CHARS = 4000
