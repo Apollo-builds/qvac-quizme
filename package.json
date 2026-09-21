@@ -1,0 +1,17 @@
+{
+  "name": "qvac-quizme",
+  "version": "1.0.0",
+  "description": "QuizMe - generate a quiz from your study notes, entirely on-device with Tether's QVAC SDK. No cloud, no API keys, no data leaving your machine.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "quiz": "node index.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.17.0"
+  },
+  "dependencies": {
+    "@qvac/sdk": "^0.19.1"
+  }
+}
