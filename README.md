@@ -62,3 +62,20 @@ qvac-quizme/
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+## Example
+
+Run QuizMe with the included sample notes:
+
+```bash
+npm run quiz
+```
+
+You can also provide your own notes file and choose the number of questions:
+
+```bash
+node index.js ./my-notes.txt 5
+```
+
+The question count must be between 1 and 10.
+
