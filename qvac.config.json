@@ -1,0 +1,6 @@
+{
+  "loggerConsoleOutput": true,
+  "loggerLevel": "info",
+  "httpDownloadConcurrency": 3,
+  "httpConnectionTimeoutMs": 10000
+}
