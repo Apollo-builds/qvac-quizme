@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "bundleId": "020407145c6a6fce320a3838fc470e77d82164b5a6a39f51b981c83cae81a9bd",
+  "bundleId": "879edbf9e95f3d0a2f66cf162f12459641468146f6715f61e5282640cca9c43a",
   "addons": [
     "@qvac/asr-ggml",
     "@qvac/audiogen-ggml",
