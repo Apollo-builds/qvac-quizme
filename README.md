@@ -1,79 +1,35 @@
-# 🧠 QuizMe
+# QuizMe
 
-Turn your study notes into a multiple-choice quiz — **entirely on your own device**.
+QuizMe is an Android app that generates multiple-choice quiz questions using Tether's QVAC SDK with on-device AI inference.
 
-QuizMe uses [Tether's QVAC SDK](https://github.com/tetherto/qvac) to run a small
-language model locally. There is no API key, no server, no usage bill, and your
-notes **never leave your machine**.
+## Features
 
-## What it does
+- Runs QVAC inference locally on an Android device
+- Uses the `QWEN3_600M_INST_Q4` model
+- Loads the model with `loadModel()`
+- Generates quiz content with `completion()`
+- Displays the generated quiz inside the app
+- No cloud API key is required for inference
 
-Give it a plain-text file with your notes and it prints a quiz generated from them:
+## Tech Stack
 
-```bash
-node index.js my-notes.txt 5
-```
+- Expo 54
+- React Native 0.81
+- Tether QVAC SDK `@qvac/sdk` 0.19.1
+- React Native Bare Kit
+- Android arm64-v8a
 
-## How it works (QVAC functions used)
-
-| Step | QVAC SDK function |
-|------|-------------------|
-| Download + load the model into memory | `loadModel()` |
-| Generate the quiz from your notes | `completion()` |
-| Free the memory afterwards | `unloadModel()` |
-
-- **SDK:** `@qvac/sdk` **v0.19.1** (npm)
-- **Model:** `QWEN3_600M_INST_Q4` (~0.5 GB download, cached after first run)
-- Inference is designed to run **on-device** through QVAC; compatible hardware/runtime support is required.
 ## Requirements
 
-- **Node.js >= 22.17** (check with `node --version`)
-- ~1 GB free disk space for the model cache
-- Hardware requirements depend on the QVAC runtime and platform; check system compatibility before running.
-## Install & run
+QVAC Android inference requires compatible physical hardware and runtime support.
+
+The test device used for this project is an Android 15 arm64 device.
+
+An Android emulator is not supported for QVAC inference.
+
+## Run the Project
+
+Install dependencies:
 
 ```bash
-git clone https://github.com/<your-username>/qvac-quizme.git
-cd qvac-quizme
 npm install
-
-# First run downloads the model (~0.5 GB), then generates a quiz:
-node index.js sample-notes.txt 5
-
-# Or use your own notes:
-node index.js path/to/your-notes.txt 3
-```
-
-> Tip: the first run is the slow one (model download). Every run after that
-> reuses the cached model and works fully offline.
-
-## Project structure
-
-```
-qvac-quizme/
-├── index.js            # the whole app (~70 lines)
-├── sample-notes.txt    # example notes so it runs out of the box
-├── qvac.config.json    # SDK logging / download settings
-└── package.json        # declares @qvac/sdk ^0.19.1
-```
-
-## License
-
-MIT — see [LICENSE](LICENSE).
-
-## Example
-
-Run QuizMe with the included sample notes:
-
-```bash
-npm run quiz
-```
-
-You can also provide your own notes file and choose the number of questions:
-
-```bash
-node index.js ./my-notes.txt 5
-```
-
-The question count must be between 1 and 10.
-
